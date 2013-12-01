@@ -1,0 +1,277 @@
+body {
+	/* set up a background image */
+	background: url('../images/melbourne.jpg') no-repeat;
+	/* the follow is the code to have the image display as a full page */
+	background-position: center;
+	background-attachment: fixed;
+	-webkit-background-size: cover; /* the next 3 lines are "browser prefixes", they are necessary to include for CSS3 techniques */
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-weight: 100;
+	text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+	color: rgba(255, 255, 255, 1);
+}
+
+.weather-icon {
+	font-size: 125px;
+	position: absolute;
+	margin: -50px 0 0 0;
+  top: 50%;
+}
+
+.weather-description {
+	width: 270px;
+	height: 130px;
+	position: absolute;
+	margin: -65px 0 0 20px;
+  top: 50%;
+  right: 0;
+  font-weight: 200;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+#widget {
+/*	overflow: hidden;*/
+	width: 400px;
+	height: 130px;
+	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
+	margin: -65px 0 0 -200px;
+	top: 50%;
+	left: 50%;
+	border-radius: 5px;
+}
+
+#widget h2 {
+	font-size: 45px;
+	margin: 10px;
+  line-height: 1.2;
+  padding-top: 10px;
+}
+
+#widget p {
+	margin: 10px;
+	font-size: 24px;
+}
+
+header {
+	background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+header h3 {
+	font-weight: 400;
+}
+
+#location {
+	float: left;
+	line-height: 0.5;
+	padding: 15px 5px;
+}
+
+header a, a:link, a:visited {
+	 color: rgba(255, 255, 255, 0.9);
+	 text-decoration: none;
+}
+
+header a:hover, a:active {
+	color: rgba(255, 255, 255, 1);
+}
+
+#date {
+	float: left;
+	line-height: 0.5;
+	padding: 15px 15px;
+}
+
+.location-marker {
+	float: left;
+  margin: 25px 5px 0px 30px;
+}
+
+#weekly-forecast {
+	background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 2;
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  overflow: hidden;
+}
+
+.forecast-widget {
+	float: left;
+	width: 205px;
+	width: -webkit-calc(100% / 7);
+	width: -ms-calc(100% / 7);
+	width: -o-calc(100% / 7);
+	width: -moz-calc(100% / 7);
+	width: calc(100% / 7);
+	line-height: 0.2;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.min {
+  float: left;
+  width: 50%;
+
+}
+
+.max {
+  float: right;
+  width: 50%;
+}
+
+.min p {
+  text-align: right;
+  padding: 0 7px 5px 0;
+}
+
+.max p {
+  text-align: left;
+  padding: 0 0 5px 7px;
+}
+
+.forecast-icon {
+	font-size: 50px;
+}
+
+#menu-icon {
+	font-size: 60px;
+	position: fixed;
+	top: 25px;
+	right: 25px;
+	font-weight: 300;
+}
+
+.location-dialog {
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 350px;
+  padding: 20px 25px 5px 25px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  max-height: 382px;
+  overflow: auto;
+  margin-top: -75px;
+  display: none;
+  line-height: 0.1;
+}
+
+.location-dialog h2 {
+	font-weight: 100;
+	font-size: 40px;
+}
+
+#location-header {
+	font-size: 40px;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+#credits {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 350px;
+	padding: 0px 25px 25px 25px;
+	margin-top: 100px;
+	float: right;
+  display: none;
+}
+
+#credits-header {
+  font-size: 60px;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  font-weight: 300;
+  z-index: 5;
+  display: none;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+input {
+  width: 300px;
+  height: 45px;
+  margin: 10px 0;
+  padding: 0 10px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 1px 1px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 24px;
+  font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.6);
+}
+
+:-moz-placeholder {
+   color: rgba(255, 255, 255, 0.6);  
+}
+
+::-moz-placeholder {
+   color: rgba(255, 255, 255, 0.6); 
+}
+
+:-ms-input-placeholder {  
+   color: rgba(255, 255, 255, 0.6);  
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+.ui-autocomplete {
+  width: 250px;
+  padding: 10px 0 0 0;
+  left: 50%;
+  margin-bottom: -20px;
+  margin-left: -200px;
+  position: relative;
+}
+
+.ui-menu-item {
+  list-style-type: none;
+  font-size: 25px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ui-state-focus {
+  color: rgba(255, 255, 255, 1);
+}
+
+

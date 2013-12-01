@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+		<meta name="description" content="Weather Dashboard">
+		<meta name="keywords" content="weather, forecast">
+		<title>Cloudy</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/icons.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/date.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="location-marker">
+				<img src="images/location-marker.svg"/>
+			</div>
+			<div id="location">
+				<h3>Sydney, AU</h3>
+				<div class="change-location">
+					<p><a href="#">Change location</a></p>
+				</div>
+			</div>
+			<div id="date">
+				<h3>Sunday, 20 October 2013</h3>
+				<p>10:57PM</p>
+			<div id="menu-icon">
+				<a href="#">+</a>
+			</div>
+			<div id="credits-header">
+				<a href="#">+</a>
+			</div>
+		</header>
+		<div class="location-dialog">
+			<div id="location-header">
+				<a href="#">+</a>
+			</div>
+			<form>
+				<h2>Where are you?</h2>
+				<input type="text" id="city" name="city" placeholder="e.g. Sydney, AU">
+			</form>
+		</div>
+		<div id="credits">
+			<h3>Credits</h3>
+			<ul>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+				<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+			</ul>
+		</div>
+		<div id="widget">
+			<div class="weather-icon icon-Cloud-Rain-Sun"></div>
+			<div class="weather-description"></div>
+		</div>
+		<div id="weekly-forecast">
+			<div class="forecast-widget day-0">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Today</p></div>
+			</div>
+			<div class="forecast-widget day-1">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Monday</p></div>
+			</div>
+			<div class="forecast-widget day-2">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Tuesday</p></div>
+			</div>
+			<div class="forecast-widget day-3">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Wednesday</p></div>
+			</div>
+			<div class="forecast-widget day-4">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Thursday</p></div>
+			</div>
+			<div class="forecast-widget day-5">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Friday</p></div>
+			</div>
+			<div class="forecast-widget day-6">
+				<div class="forecast-icon icon-Cloud-Rain-Sun"></div>
+				<div class="min"><p>13</p></div>
+				<div class="max"><p>24</p></div>
+				<div class="day"><p>Saturday</p></div>
+			</div>
+		</div>
+	</body>
+</html>
