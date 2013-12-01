@@ -1,4 +1,4 @@
-var cityNames = [
+var cities = [
   {
     name:"Sydney, AU",
     latitude: -33.8600,
@@ -34,7 +34,10 @@ var cityNames = [
     latitude: -31.9530,
     longitude: 115.8574
   }
-]
+];
+
+// TODO: Detect closest city using the browser's geo location API.
+var currentCity = cities[0];
 
 $(document).ready(function () {
 
@@ -47,11 +50,7 @@ $(document).ready(function () {
   });
 
   $( "#location-header" ).click(function() {
-    $('#widget').fadeIn();
-    $('header').fadeIn();
-    $('#menu-icon').fadeIn();
-    $('#weekly-forecast').fadeIn();
-    $('.location-dialog').fadeOut();
+    closeCitySelectionModal();
   });
 
   $( "#menu-icon" ).click(function() {
@@ -64,12 +63,15 @@ $(document).ready(function () {
     $('#credits').fadeOut();
     $('#credits-header').fadeOut();
     $('#menu-icon').fadeIn();
-  }) 
+  })
 
 });
 
 
 function renderData(data) {
+  console.log(currentCity)
+  $('#location h3').text(currentCity.name);
+
   console.log(data);
   weatherDescription = $('.weather-description');
   dayZeroMin = $('.day-0 .min');
@@ -104,40 +106,52 @@ function renderData(data) {
   daySixMax.html("<p>" + Math.round(data.daily.data[6].temperatureMax) + "</p>");
 };
 
+var closeCitySelectionModal = function(){
+  $('#widget').fadeIn();
+  $('header').fadeIn();
+  $('#menu-icon').fadeIn();
+  $('#weekly-forecast').fadeIn();
+  $('.location-dialog').fadeOut();
+};
 
 $(document).ready(function() {
-  var availableTags = [
-    "Sydney, AU",
-    "Melbourne, AU",
-    "Brisbane, AU",
-    "Darwin, AU",
-    "Adelaide, AU",
-    "Hobart, AU",
-    "Perth, AU",
-    "Canberra, AU",
-  ];
+  // Map each city to an object accepted by autocomplete
+  var citiesForSelection = cities.map(function(city){
+    return {
+      label: city.name,
+      value: city.name,
+      city: city
+    };
+  });
 
   $("#city").autocomplete({
-    source: availableTags,
+    source: citiesForSelection,
     appendTo: ".location-dialog",
-    focus: function( event, ui ) {}
+    focus: function( event, ui ) {},
+    select: function( event, ui ) {
+      currentCity = ui.item.city;
+      // Get weather for selected city
+      getWeatherData(currentCity);
+    }
   });
 
   $( "#city" ).on( "autocompletefocus", function( event, ui ) {
-  } );
+  });
 
-  function getWeatherData() {
+  function getWeatherData(city) {
    var apiKey = '2369dbdb80831f01a1faab100ad71087';
    var url = 'https://api.forecast.io/forecast/';
-   var latitude = -33.8600;
-   var longitude = 151.2111;
-   var data;
-   $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?units=si&callback=?", function (data) {
-     renderData(data);
+
+   if (!city) { return };
+
+   $.getJSON(url + apiKey + "/" + city.latitude + "," + city.longitude + "?units=si&callback=?", function (data) {
+      closeCitySelectionModal();
+      renderData(data);
    });
   }
 
-  getWeatherData();
+  // Load initial data with default city
+  getWeatherData(currentCity);
 
   today=new Date()
   thisDay=today.getDay()
@@ -147,13 +161,13 @@ $(document).ready(function() {
 
 $(document).ready(function () {
 
-  function handleKeyPress(event){
-    if(event.charCode == 13){
-      var cityInput = $("#city");
-    }
-  }
+  // function handleKeyPress(event){
+  //   if(event.charCode == 13){
+  //     var cityInput = $("#city");
+  //   }
+  // }
 
-  $("#city").keypress(handleKeyPress);
+  // $("#city").keypress(handleKeyPress);
 
 });
 
